@@ -1,4 +1,5 @@
 The file runs all the necessary tailwind commands so you can immediately start you project
+
 System Requirements:
 1. Npm and Node.js must be installed
 2. Git must be installed
