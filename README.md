@@ -4,7 +4,7 @@ System Requirements:
 1. Npm and Node.js must be installed
 2. Should be run on a linux terminal
 3. Have Git installed (optional)
-4. Have vs-code installed and installed to path (optional)
+4. Have vs-code installed and added to path (optional)
 
 How to use
 1. Create  a new project folder
