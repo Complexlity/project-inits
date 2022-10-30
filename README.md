@@ -1,4 +1,4 @@
-The file runs all the necessary tailwind commands so you can immediately start you project
+The tailwind.sh file runs all the necessary tailwind commands so you can immediately start your project
 
 System Requirements:
 1. Npm and Node.js must be installed
