@@ -7,7 +7,7 @@ mkdir css
 mkdir js
 touch index.html input.css css/styles.css js/main.js
 packageJSON='{
-  "name": "New Project",
+  "name": "new_project",
   "version": "1.0.0",
   "description": "",
   "main": "js/main.js",
