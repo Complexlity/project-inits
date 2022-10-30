@@ -1,10 +1,29 @@
-set -e
+# set -e
+#Assumes node.js and npm are installed on the hardward
 npm init -y
 npm install -D tailwindcss
 npx tailwindcss init
 mkdir css
 mkdir js
 touch index.html input.css css/styles.css js/main.js
+packageJSON='{
+  "name": "New Project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/main.js",
+  "scripts": {
+    "build": "npx tailwindcss -i input.css -o css/styles.css",
+    "watch": "npx tailwindcss -i input.css -o css/styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.2.1"
+  }
+}
+'
+echo "$packageJSON" > package.json
 tailwindInit="@tailwind base;\n@tailwind components;\n@tailwind utilities;"
 echo -e $tailwindInit > input.css
 tailwindConfig='module.exports = {
@@ -31,8 +50,12 @@ htmlInit='<!DOCTYPE html>
 </body>
 </html>'
 echo "$htmlInit" > index.html
+
+#Runs if git is installed on the hardware
 git init
 echo 'node_modules' > .gitignore
 git add .
 git commit -m "Initial commit"
+
+#optionally runs if vs-code is installed and added to path on the hardware
 code .
