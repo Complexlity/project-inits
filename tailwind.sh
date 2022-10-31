@@ -1,13 +1,17 @@
 # set -e
-#Assumes node.js and npm are installed on the hardward
+#Assumes node.js and npm are installed on the hardware
 npm init -y
 npm install -D tailwindcss
 npx tailwindcss init
 mkdir css
 mkdir js
 touch index.html input.css css/styles.css js/main.js
-packageJSON='{
-  "name": "new_project",
+projectName=${PWD##*/} 
+first='{
+  "name": "'
+echo -n "$first" > package.json
+echo -n $projectName >> package.json
+packageJSON='",
   "version": "1.0.0",
   "description": "",
   "main": "js/main.js",
@@ -23,7 +27,7 @@ packageJSON='{
   }
 }
 '
-echo "$packageJSON" > package.json
+echo "$packageJSON" >> package.json
 tailwindInit="@tailwind base;\n@tailwind components;\n@tailwind utilities;"
 echo -e $tailwindInit > input.css
 tailwindConfig='module.exports = {
