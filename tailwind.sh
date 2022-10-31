@@ -1,4 +1,4 @@
-# set -e
+set -e
 #Assumes node.js and npm are installed on the hardware
 npm init -y
 npm install -D tailwindcss

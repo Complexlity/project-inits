@@ -18,4 +18,4 @@ What the command does
 2. Creates all necessary html, css and js files
 3. Creates "build" and "watch" commands in package.json file
 4. Links index.html to the created css and js files
-5. Links tailwind.config file to watch all html files created in that folder
+5. Links tailwind.config file to watch all html files in that folder
