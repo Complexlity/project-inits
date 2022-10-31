@@ -1,8 +1,8 @@
 set -e
 #Assumes node.js and npm are installed on the hardware
-# npm init -y
-# npm install -D tailwindcss
-# npx tailwindcss init
+npm init -y
+npm install -D tailwindcss
+npx tailwindcss init
 mkdir css
 mkdir js
 touch index.html input.css css/styles.css js/main.js
