@@ -2,7 +2,6 @@ set -e
 #Assumes node.js and npm are installed on the hardware
 npm init -y
 npm install -D tailwindcss
-npm install -D prettier prettier-plugin-tailwindcss
 npx tailwindcss init
 mkdir css
 mkdir js
@@ -61,9 +60,10 @@ htmlInit='<!DOCTYPE html>
 </body>
 </html>'
 
-prettierConfig='module.exports = {
+npm install -D prettier prettier-plugin-tailwindcss
+prettierConfig="module.exports = {
   plugins: [require('prettier-plugin-tailwindcss')],
-}'
+}"
 echo "$prettierConfig" > prettier.config.js
 
 echo "$htmlInit" > index.html
