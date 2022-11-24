@@ -59,6 +59,12 @@ htmlInit='<!DOCTYPE html>
     
 </body>
 </html>'
+
+prettierConfig='module.exports = {
+  plugins: [require('prettier-plugin-tailwindcss')],
+}'
+echo "$prettierConfig" > prettier.config.js
+
 echo "$htmlInit" > index.html
 
 #Runs if git is installed on the hardware
