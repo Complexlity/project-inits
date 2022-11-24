@@ -2,6 +2,7 @@ set -e
 #Assumes node.js and npm are installed on the hardware
 npm init -y
 npm install -D tailwindcss
+npm install -D prettier prettier-plugin-tailwindcss
 npx tailwindcss init
 mkdir css
 mkdir js
