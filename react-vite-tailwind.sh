@@ -13,13 +13,29 @@ module.exports = {
   },
   plugins: [],
 }'
+echo "$tailwindConfig" > tailwind.config.cjs
 
-echo "$tailwindConfig" >> tailwind.config.cjs
+tailwindInit="@tailwind base;
+@tailwind components;
+@tailwind utilities;"
+echo "$tailwindInit" > ./src/index.css
 
-tailwindInit="@tailwind base;\n@tailwind components;\n@tailwind utilities;\n"
+rm src/App.css
 
-sed -i "1i$tailwindInit" ./src/index.css
+appJSX='
+function App() {
+  return (
+    <div className="App">
+    </div>
+  )
+}
 
+export default App'
+echo "$appJSX" > src/App.jsx
+
+#Runs if git is installed on the hardware
+git init
+echo 'node_modules' > .gitignore
 git add .
 git commit -m "Initial commit"
 
