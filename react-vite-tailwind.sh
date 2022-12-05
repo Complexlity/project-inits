@@ -33,6 +33,13 @@ function App() {
 export default App'
 echo "$appJSX" > src/App.jsx
 
+npm install -D prettier prettier-plugin-tailwindcss
+prettierConfig="module.exports = {
+  plugins: [require('prettier-plugin-tailwindcss')],
+}"
+echo "$prettierConfig" > prettier.config.js
+
+
 #Runs if git is installed on the hardware
 git init
 echo 'node_modules' > .gitignore
