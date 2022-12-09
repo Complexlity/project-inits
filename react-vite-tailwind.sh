@@ -1,5 +1,15 @@
 set -e
-npm create vite@latest . -- --template react
+defaultTemplate="react"
+defaultExtension="jsx"
+
+value=''
+if [[ $1 == "ts" ]]
+then  
+value="-$1"
+defaultExtension='tsx'
+fi
+defaultTemplate+="$value"
+npm create vite@latest . -- --template "$defaultTemplate"
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 tailwindConfig='/** @type {import('tailwindcss').Config} */
@@ -22,16 +32,17 @@ echo "$tailwindInit" > ./src/index.css
 
 rm src/App.css
 
-appJSX='
+app='
 function App() {
   return (
     <div className="App">
+    Hello World
     </div>
   )
 }
 
 export default App'
-echo "$appJSX" > src/App.jsx
+echo "$app" > src/App.$defaultExtension
 
 npm install -D prettier prettier-plugin-tailwindcss
 prettierConfig="module.exports = {
