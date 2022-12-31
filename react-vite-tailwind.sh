@@ -1,12 +1,10 @@
 set -e
 defaultTemplate="react"
-defaultExtension="jsx"
 
 value=''
 if [[ $1 == "ts" ]]
 then  
 value="-$1"
-defaultExtension='tsx'
 fi
 defaultTemplate+="$value"
 npm create vite@latest . -- --template "$defaultTemplate"
@@ -42,7 +40,7 @@ function App() {
 }
 
 export default App'
-echo "$app" > src/App.$defaultExtension
+echo "$app" > src/App.*
 
 npm install -D prettier prettier-plugin-tailwindcss
 prettierConfig="module.exports = {
