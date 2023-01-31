@@ -33,7 +33,7 @@ do
 done
 query="$defaultExtension $eslint $appDir $srcDir $pkgMgr --import-alias @/*"
 echo "Installing NextJs..."
-npx create-next-app@latest . $query
+npx create-next-app@13.1.6 . $query
 echo "Installing TailwiindCSS..."
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
