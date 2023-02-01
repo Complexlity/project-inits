@@ -57,7 +57,7 @@ The `react-vite-tailwind.sh` file runs all commands to immediately start a react
 
 ## NextJs Initializer with TailwindCSS
 
-The **next-tailwind.sh** initilizes a NextJs project with tailwind installed. In the current behaviour, the program install `NextJs` version `13.1.6`. <!-- This is because it has been designed to work properly to by-pass the CLI prompts of this version.--> By default, this project is made to be Non-interactive so you won't see any of these prompts <br><br>
+The **next-tailwind.sh** initilizes a NextJs project with tailwind installed. The program installs `NextJs` version `13.1.6`. <!-- This is because it has been designed to work properly to by-pass the CLI prompts of this version.--> <br/> By default, this project is made to be Non-interactive so you won't see any of these prompts <br><br>
 <img src="./next-prompt.png" alt="Next 13.1.6 CLI Prompt"/>
 This would be updated depending on the changes made in future NextJs version
 
