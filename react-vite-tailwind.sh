@@ -6,10 +6,10 @@ value=''
 if [[ $1 == "ts" ]]
 then  
 value="-$1"
-typescript="With TypeScript"
+typescript="With TypeScript..."
 fi
 defaultTemplate+="$value"
-echo "Installing React '$typescript'..."
+echo "Installing React $typescript..."
 npm create vite@latest . -- --template "$defaultTemplate"
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
