@@ -6,7 +6,7 @@ value=''
 if [[ $1 == "ts" ]]
 then  
 value="-$1"
-typescript = "With TypeScript"
+typescript="With TypeScript"
 fi
 defaultTemplate+="$value"
 echo "Installing React '$typescript'..."
