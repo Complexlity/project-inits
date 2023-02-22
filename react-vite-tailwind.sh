@@ -11,6 +11,7 @@ fi
 defaultTemplate+="$value"
 echo "Installing React$typescript..."
 npm create vite@latest . -- --template "$defaultTemplate"
+echo "Installing TailwindCSS..."
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 tailwindConfig='/** @type {import('tailwindcss').Config} */
