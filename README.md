@@ -38,10 +38,10 @@ The `react-vite-tailwind.sh` file runs all commands to immediately start a react
 
 ### How to use
 
-1. Create a new project folder (`mkdir example-project`)
-2. Enter the newly created folder (`cd example-project`)
-3. Copy the **react-vite-tailwind.sh** into the new folder.
-4. Run `bash react-vite-tailwind.sh` in that folder.
+1. Copy the `react-vite-tailwind.sh` into a folder on your machine (I would call this the `parent`)
+2. Create a new project folder inside the parent folder (`mkdir new-project`)
+3. Enter the newly created folder (`cd new-project`)
+4. Run `bash ../react-vite-tailwind.sh` in that folder.
    The default configuration is Javascript but if you want to use typescript then add the `ts` param to the command
    `bash react-vite-tailwind.sh ts`
 
@@ -63,10 +63,12 @@ This would be updated depending on the changes made in future NextJs version
 
 ### How to Use
 
-1. Create a new project folder (`mkdir example-project`)
-2. Enter the newly created folder (`cd example-project`)
-3. Copy the **next-tailwind.sh** into the new folder.
-4. Run `bash next-tailwind.sh [options]`
+This also has a similar procedure as `react-vite-tailwind.sh`
+
+1. Copy the `next-tailwind.sh` into a folder on your machine (I would call this the `parent`)
+2. Create a new project folder inside the `parent` folder (`mkdir new-project`)
+3. Enter the newly created folder (`cd new-project`)
+4. Run `bash ../next-tailwind.sh [options]`
 
 ```
 Options:
@@ -106,3 +108,13 @@ By default  the import alias is "@/*" and this behaviour cannot be changed
 5. Replaces the default `App` code with `hello world`
 6. If git is installed, then it initializes a new repository
 7. If VsCode is installed then it opens the folder
+
+## Tip
+
+One good idea is to copy these files into the root (`~` in bash) of the machine. This way you don't have to worry about any parent or child and would just run
+
+```
+bash ~/<script-name>
+```
+
+in any folder and it would work as expected. The scripts would be accessible globally
