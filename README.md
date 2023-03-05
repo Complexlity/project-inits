@@ -43,7 +43,7 @@ The `react-vite-tailwind.sh` file runs all commands to immediately start a react
 3. Enter the newly created folder (`cd new-project`)
 4. Run `bash ../react-vite-tailwind.sh` in that folder.
    The default configuration is Javascript but if you want to use typescript then add the `ts` param to the command
-   `bash react-vite-tailwind.sh ts`
+   `bash ../react-vite-tailwind.sh ts`
 
 ### What the command does
 
