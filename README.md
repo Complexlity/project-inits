@@ -63,8 +63,6 @@ This would be updated depending on the changes made in future NextJs version
 
 ### How to Use
 
-This also has a similar procedure as `react-vite-tailwind.sh`
-
 1. Copy the `next-tailwind.sh` into a folder on your machine (I would call this the `parent`)
 2. Create a new project folder inside the `parent` folder (`mkdir new-project`)
 3. Enter the newly created folder (`cd new-project`)
