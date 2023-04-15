@@ -93,9 +93,9 @@ By default  the import alias is "@/*" and this behaviour cannot be changed
 
 ### Example commands:
 
-- `bash next-tailwind.sh app ts lint`
-- `bash next-tailwind.sh src pnpm ts`
-- `bash next-tailwind.sh `
+- `bash ../next-tailwind.sh app ts lint`
+- `bash ../next-tailwind.sh src pnpm ts`
+- `bash ../next-tailwind.sh `
 
 ### What the Command does
 
