@@ -1,18 +1,27 @@
+#!/bin/bash
 set -e
-#Assumes node.js and npm are installed on the hardware
-npm init -y
-echo "Installing TailwindCSS..."
-npm install -D tailwindcss
-npx tailwindcss init
-mkdir css
-mkdir js
-touch index.html input.css css/styles.css js/main.js
-projectName=${PWD##*/} 
-partPackageJSON='{
-  "name": "'
-echo -n "$partPackageJSON" > package.json
-echo -n $projectName >> package.json
-partPackageJSON='",
+
+# Initializes a new Node.js project
+initialize_node_project() {
+  npm init -y
+}
+
+# Installs TailwindCSS and creates the configuration files
+install_tailwindcss() {
+  echo "Installing TailwindCSS..."
+  npm install -D tailwindcss
+
+  npx tailwindcss init
+
+  mkdir -p css js
+
+  touch index.html input.css css/styles.css js/main.js
+
+  local project_name=${PWD##*/}
+
+  cat > package.json <<EOF
+{
+  "name": "$project_name",
   "version": "1.0.0",
   "description": "",
   "main": "js/main.js",
@@ -27,14 +36,19 @@ partPackageJSON='",
     "tailwindcss": "^3.2.1"
   }
 }
-'
-echo "$partPackageJSON" >> package.json
-tailwindInit="@tailwind base;\n@tailwind components;\n@tailwind utilities;"
-echo -e $tailwindInit > input.css
-tailwindConfig='module.exports = {
+EOF
+
+  cat > input.css <<EOF
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+EOF
+
+  cat > tailwind.config.js <<EOF
+module.exports = {
   content: ["./*.html"],
   theme: {
-     screens: {
+    screens: {
       sm: "480px",
       md: "768px",
       mg: "976px",
@@ -44,9 +58,10 @@ tailwindConfig='module.exports = {
   },
   plugins: [],
 }
-'
-echo "$tailwindConfig" > tailwind.config.js
-htmlInit='<!DOCTYPE html>
+EOF
+
+  cat > index.html <<EOF
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,24 +72,40 @@ htmlInit='<!DOCTYPE html>
     <script src="js/main.js" defer></script>
 </head>
 <body>
-    
+  Hello World  
 </body>
-</html>'
+</html>
+EOF
+}
 
-echo "Installing Prettier for Tailwind..."
-npm install -D prettier prettier-plugin-tailwindcss
-prettierConfig="module.exports = {
+# Installs Prettier and the TailwindCSS plugin
+install_prettier() {
+  echo "Installing Prettier for Tailwind..."
+  npm install -D prettier prettier-plugin-tailwindcss
+
+  cat > prettier.config.js <<EOF
+module.exports = {
   plugins: [require('prettier-plugin-tailwindcss')],
-}"
-echo "$prettierConfig" > prettier.config.js
+}
+EOF
+}
 
-echo "$htmlInit" > index.html
+# Initializes a new Git repository
+initialize_git_repository() {
+  if command -v git &> /dev/null; then
+    git init
 
-#Runs if git is installed on the hardware
-git init
-echo 'node_modules' > .gitignore
-git add .
-git commit -m "Initial commit"
+    echo 'node_modules' > .gitignore
 
-#optionally runs if vs-code is installed and added to path on the hardware
+    git add --all
+    git commit -m "Initial commit"
+  fi
+}
+
+
+
+initialize_node_project
+install_tailwindcss
+install_prettier
+initialize_git_repository
 code .
